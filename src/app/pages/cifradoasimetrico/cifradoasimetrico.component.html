@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 class="title">Cifrado LUC (Lucas-based Public Key Cryptosystem)</h1>
+
+  <label>Nombre:</label>
+  <input type="text" [(ngModel)]="nombre" class="input" placeholder="Ingresa tu nombre" />
+
+  <label>Dirección:</label>
+  <input type="text" [(ngModel)]="direccion" class="input" placeholder="Ingresa tu dirección" />
+
+  <label>Correo Electrónico:</label>
+  <input type="email" [(ngModel)]="correo" class="input" placeholder="Ingresa tu correo" />
+
+  <label>Número de Teléfono:</label>
+  <input type="tel" [(ngModel)]="telefono" class="input" placeholder="Ingresa tu número" />
+
+  <p class="error" *ngIf="errorMensaje">{{ errorMensaje }}</p>
+
+  <button class="button" (click)="encryptLUC()">Cifrar</button>
+  <button class="button" (click)="decryptLUC()">Descifrar</button>
+
+  <h2>Resultado del Cifrado:</h2>
+  <p class="resultado">{{ mensajeCifrado.length ? mensajeCifrado.join(', ') : 'No hay mensaje cifrado aún.' }}</p>
+
+  <h2>Resultado del Descifrado:</h2>
+  <p class="resultado">{{ mensajeDescifrado || 'No hay mensaje descifrado aún.' }}</p>
+
+  <button class="button" *ngIf="mensajeCifrado.length" (click)="copiarAlPortapapeles()">Copiar Texto Cifrado</button>
+</div>

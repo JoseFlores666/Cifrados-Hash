@@ -1,0 +1,174 @@
+<title>Comparación: Angular vs Express - Cifrado GOST y LUC</title>
+
+<div class="container-comp">
+    <h1>Comparación de Cifrado GOST y LUC en Angular y Express</h1>
+
+    <h2 class="section-title">Descripción de los métodos de cifrado</h2>
+    <p><strong>GOST (Gosudarstvennyi Standard):</strong> Es un algoritmo de cifrado simétrico usado en Rusia, conocido
+        por su seguridad y simplicidad en comparación con otros algoritmos. Se utiliza una clave secreta compartida
+        tanto para el cifrado como para el descifrado.</p>
+    <p><strong>LUC (Lucas-based Public Key Cryptosystem):</strong> Es un sistema de cifrado asimétrico basado en la
+        secuencia de Lucas. Utiliza un par de claves (pública y privada) para cifrar y descifrar mensajes, similar a
+        otros criptosistemas de clave pública como RSA.</p>
+
+    <h2 class="section-title">Comparación Angular vs Express</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Aspecto</th>
+                <th>Angular (GOST y LUC)</th>
+                <th>Express (GOST y LUC)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Rendimiento</strong></td>
+                <td>
+                    <li>
+                        Angular, como un framework completo, tiene mayor sobrecarga de inicio debido a su naturaleza de
+                        paquete más robusto y dependencias adicionales.
+                    </li>
+                    <li>
+                        En operaciones criptográficas pesadas como GOST y LUC, el rendimiento es adecuado pero
+                        ligeramente
+                        más lento debido al uso de TypeScript y otras abstracciones.
+                    </li>
+                </td>
+                <td>
+                    <li>
+                        Express es un framework minimalista y tiene una carga inicial más ligera.
+
+                    </li>
+                    <li>
+                        En tareas de cifrado, Express puede manejar las operaciones más rápidamente debido a su enfoque
+                        en el lado del servidor y a la capacidad de realizar tareas sin sobrecarga del DOM.
+                    </li>
+
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Facilidad de Implementación</strong></td>
+                <td>
+                    <li>
+                        Angular ofrece una estructura más rígida y una curva de aprendizaje más pronunciada.
+                    </li>
+                    <li>
+                        La modularidad de Angular es beneficiosa para implementar cifrados como GOST y LUC, ya que los
+                        componentes y servicios pueden reutilizarse fácilmente.
+                    </li>
+                    <li>
+                        La integración de bibliotecas externas como `big-integer` o cualquier otra librería de cifrado
+                        es
+                        sencilla gracias a los servicios.
+                    </li>
+                </td>
+                <td>
+                    <li>
+                        Express es fácil de configurar y se centra en la creación de aplicaciones web y APIs.
+                    </li>
+                    <li>
+                        Implementar GOST y LUC en Express es directo, permitiendo que el enfoque en el cifrado sea
+                        rápido
+                        y eficiente.
+                    </li>
+                    <li>
+                        Permite una integración sencilla de bibliotecas de cifrado como `crypto-js` y `big-integer`.
+                    </li>
+
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Manejo del Estado</strong></td>
+                <td>
+                    <li>
+                        En Angular, el manejo del estado para la implementación del cifrado GOST y LUC es muy
+                        estructurado. Los servicios ayudan a centralizar la lógica de cifrado, facilitando su uso en
+                        diferentes componentes.
+                    </li>
+                    <li>
+                        El uso de `ngModel` facilita la vinculación de los datos para cifrar/descifrar.
+
+                    </li>
+
+                </td>
+                <td>
+                    <li>
+                        Express maneja el estado en el lado del servidor. La lógica de cifrado puede estar encapsulada
+                        en
+                        controladores o middleware, lo que permite un flujo de trabajo más simple.
+                    </li>
+                    <li>
+                        Los datos se pueden enviar y recibir mediante solicitudes HTTP, facilitando la interacción con
+                        el cliente.
+                    </li>
+
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Integración de Librerías Criptográficas</strong></td>
+                <td>
+                    <li>
+                        Angular ofrece una integración fácil con bibliotecas externas como `big-integer` para manejar
+                        grandes números en LUC o `crypto-js` para GOST.
+                    </li>
+                    <li>
+                        Los servicios permiten encapsular esta lógica y mantener el código modular.
+
+                    </li>
+
+                </td>
+                <td>
+                    <li>
+                        En Express, las mismas bibliotecas como `big-integer` y `crypto-js` se pueden integrar
+                        fácilmente.
+                    </li>
+                    <li>
+                        La naturaleza de Express permite importar y utilizar estas bibliotecas en cualquier archivo del
+                        servidor, facilitando la implementación.
+                    </li>
+
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Curva de Aprendizaje</strong></td>
+                <td>
+                    <li>
+                        La curva de aprendizaje de Angular es más pronunciada debido a su naturaleza de framework
+                        completo
+                        con conceptos como inyección de dependencias, módulos, servicios, etc.
+                    </li>
+                    <li>
+                        Esto puede hacer que la implementación de cifrados en Angular sea más desafiante para
+                        principiantes.
+                    </li>
+
+
+                </td>
+                <td>
+                    <li>
+                        Express tiene una curva de aprendizaje más suave, especialmente para aquellos familiarizados con
+                        JavaScript y Node.js.
+                    </li>
+                    <li>
+                        Implementar cifrados en Express es accesible y rápido, ideal para desarrolladores que buscan
+                        construir aplicaciones backend eficientes.
+                    </li>
+
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 class="section-title">Conclusión</h2>
+    <p>En términos de rendimiento, Express es generalmente más rápido para implementaciones ligeras debido a su
+        enfoque minimalista y a la falta de sobrecarga del DOM. Sin embargo, Angular es preferido para proyectos más
+        grandes, donde su arquitectura modular y fuerte tipado (a través de TypeScript) facilita la reutilización y el
+        mantenimiento de código a largo plazo.</p>
+    <p>En cuanto a facilidad de implementación, Express es más flexible y rápido de configurar para aplicaciones
+        de cifrado como GOST o LUC, mientras que Angular ofrece una estructura más sólida pero con una curva de
+        aprendizaje más alta. Ambos enfoques permiten una integración sencilla con bibliotecas criptográficas, pero la
+        elección entre uno u otro dependerá del tamaño y la complejidad del proyecto.</p>
+
+</div>

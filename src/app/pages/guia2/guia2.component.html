@@ -1,0 +1,110 @@
+<div class="container-doc">
+    <h1>Guía: Cifrado Asimétrico usando LUC</h1>
+
+    <h2>1. Conceptos clave del criptosistema LUC</h2>
+    <p>
+        El sistema de cifrado LUC, también conocido como Lucas-based Public Key Cryptosystem, utiliza secuencias de
+        Lucas, que son similares a la secuencia de Fibonacci pero con propiedades matemáticas más generales. La fórmula
+        principal utilizada es:
+    </p>
+    <p><strong>Fórmula de la secuencia de Lucas:</strong></p>
+    <p>
+        U<sub>n</sub>(P, Q) = P * U<sub>n-1</sub>(P, Q) - Q * U<sub>n-2</sub>(P, Q)
+    </p>
+    <p>
+        Donde:
+    </p>
+    <ul>
+        <li><strong>U<sub>n</sub>(P, Q):</strong> Es el número de Lucas en la posición n, basado en los parámetros P y
+            Q.</li>
+        <li><strong>P y Q:</strong> Son enteros elegidos al inicio.</li>
+        <li><strong>U<sub>0</sub> = 0</strong> y <strong>U<sub>1</sub> = 1</strong> como condiciones iniciales.</li>
+    </ul>
+
+    <h2>2. Generación de las claves pública y privada</h2>
+    <p>
+        En el criptosistema LUC, como en otros métodos asimétricos, se generan dos claves: una pública para cifrar y una
+        privada para descifrar.
+    </p>
+    <ul>
+        <li><strong>Paso 1:</strong> Elige dos números primos grandes, p y q.</li>
+        <li><strong>Paso 2:</strong> Calcula N = p * q. Este valor se usará para el cifrado y descifrado.</li>
+        <li><strong>Paso 3:</strong> Selecciona los parámetros P y Q, generalmente se usa Q = 1.</li>
+        <li><strong>Paso 4:</strong> Elige el exponente de cifrado e tal que sea coprimo con (p-1) * (q-1).</li>
+        <li><strong>Paso 5:</strong> Calcula la clave privada d, de modo que e * d sea congruente a 1 módulo lambda(N),
+            donde lambda(N) es el mínimo común múltiplo de p-1 y q-1.</li>
+    </ul>
+
+    <h2>3. Proceso de cifrado</h2>
+    <p>
+        Para cifrar un mensaje M (convertido en un número), se utiliza la secuencia de Lucas y la clave pública e:
+    </p>
+    <p><strong>Fórmula de cifrado:</strong></p>
+    <p>
+        C = U<sub>e</sub>(P, Q) mod N
+    </p>
+    <p>
+        Donde U<sub>e</sub>(P, Q) es el término de la secuencia de Lucas en la posición e y C es el mensaje cifrado.
+    </p>
+
+    <h2>4. Proceso de descifrado</h2>
+    <p>
+        El descifrado se realiza usando la clave privada d para recuperar el mensaje original M:
+    </p>
+    <p><strong>Fórmula de descifrado:</strong></p>
+    <p>
+        M = U<sub>d</sub>(P, Q) mod N
+    </p>
+    <p>
+        Aquí U<sub>d</sub>(P, Q) es el término de la secuencia de Lucas en la posición d, lo que permite obtener el
+        mensaje original.
+    </p>
+
+    <h2>5. Ejemplo básico de cifrado y descifrado</h2>
+    <p>A continuación se muestra un ejemplo simplificado:</p>
+    <ul>
+        <li><strong>Generación de claves:</strong>
+            <ul>
+                <li>Primos: p = 11, q = 19.</li>
+                <li>Cálculo: N = p * q = 209.</li>
+                <li>Parámetros: P = 3, Q = 1.</li>
+                <li>Clave pública e = 7, clave privada d = 13.</li>
+            </ul>
+        </li>
+        <li><strong>Cifrado:</strong> Para un mensaje M = 5, calcula C = U<sub>7</sub>(3, 1) mod 209.</li>
+        <li><strong>Descifrado:</strong> Con la clave privada d = 13, se calcula M = U<sub>13</sub>(3, 1) mod 209.</li>
+    </ul>
+
+    <h2>6. Ventajas y desventajas del criptosistema LUC</h2>
+    <p><strong>Ventajas:</strong></p>
+    <ul>
+        <li><strong>Resistencia a ciertos ataques:</strong> Es más robusto frente a ciertos ataques algebraicos que
+            otros sistemas como RSA.</li>
+        <li><strong>Diversidad:</strong> Al usar una secuencia diferente (Lucas), proporciona mayor variabilidad
+            matemática.</li>
+    </ul>
+    <p><strong>Desventajas:</strong></p>
+    <ul>
+        <li><strong>Complejidad computacional:</strong> Es más complicado de implementar debido a los cálculos de la
+            secuencia de Lucas.</li>
+        <li><strong>Rendimiento:</strong> Generalmente es más lento en comparación con RSA.</li>
+    </ul>
+
+    <h2>7. Aplicaciones del sistema LUC</h2>
+    <p>
+        LUC puede ser utilizado en escenarios donde se necesite un alto grado de seguridad y resistencia a ataques, como
+        en:
+    </p>
+    <ul>
+        <li>Sistemas de firma digital.</li>
+        <li>Cifrado de mensajes en entornos altamente seguros.</li>
+        <li>Sistemas financieros con alta demanda criptográfica.</li>
+    </ul>
+
+    <h2>8. Conclusión</h2>
+    <p>
+        El criptosistema LUC es una alternativa interesante a otros métodos de cifrado asimétrico. Su uso de la
+        secuencia de Lucas proporciona una robustez adicional frente a ciertos ataques, aunque con una mayor complejidad
+        computacional.
+    </p>
+</div>

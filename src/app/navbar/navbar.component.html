@@ -1,0 +1,29 @@
+<mat-toolbar class="nav">
+  <span><mat-icon>vpn_lock</mat-icon>Cifrados</span>
+
+  <div class="spacer"></div>
+
+  <button mat-button [matMenuTriggerFor]="about1" style="color: white;">
+    Cifrados
+    <i class="material-icons">arrow_drop_down</i>
+  </button>
+
+  <button mat-button [matMenuTriggerFor]="about2" style="color: white;">
+    Cifrado Asimetrico
+    <i class="material-icons">arrow_drop_down</i>
+  </button>
+
+  <mat-menu #about1="matMenu">
+    <a mat-menu-item [routerLink]="['/Guia']">Guía</a>
+    <a mat-menu-item [routerLink]="['/CifradoCesar']">Cifrado César</a>
+    <a mat-menu-item [routerLink]="['/CifradoEscitala']">Cifrado Escítala</a>
+    <a mat-menu-item [routerLink]="['/Documentacion']">Documentación</a>
+  </mat-menu>
+
+  <mat-menu #about2="matMenu">
+    <a mat-menu-item [routerLink]="['/Guia2']">Guía</a>
+    <a mat-menu-item [routerLink]="['/CifradoAsimetrico']">Cifrado Asimetrico</a>
+    <a mat-menu-item [routerLink]="['/Documentacion2']">Documentación</a>
+    <a mat-menu-item [routerLink]="['/Comparacion']">Comparacion de FrameWorks</a>
+  </mat-menu>
+</mat-toolbar>

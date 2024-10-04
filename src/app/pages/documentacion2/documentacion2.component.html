@@ -1,0 +1,83 @@
+<div class="container-doc">
+    <h1>Diferencias entre Cifrado Simétrico, Asimétrico y Hash</h1>
+    
+    <h2>1. Cifrado Simétrico</h2>
+    <p>
+        El cifrado simétrico utiliza la misma clave tanto para cifrar como para descifrar los datos. Esto significa que ambas partes, emisor y receptor, deben compartir la misma clave de forma segura.
+    </p>
+    <h3>Características:</h3>
+    <ul>
+        <li><strong>Velocidad:</strong> El cifrado simétrico es generalmente más rápido que el asimétrico.</li>
+        <li><strong>Clave compartida:</strong> Requiere que ambas partes tengan la misma clave.</li>
+        <li><strong>Seguridad:</strong> La seguridad depende del secreto de la clave. Si la clave es comprometida, todo el sistema está en riesgo.</li>
+    </ul>
+    <h3>Ejemplos comunes:</h3>
+    <ul>
+        <li><code>AES (Advanced Encryption Standard)</code></li>
+        <li><code>DES (Data Encryption Standard)</code></li>
+    </ul>
+    <h3>Uso común:</h3>
+    <p>
+        El cifrado simétrico se utiliza en escenarios donde la velocidad es crítica y las partes pueden compartir una clave de manera segura, como en conexiones de red seguras o almacenamiento encriptado.
+    </p>
+
+    <h2>2. Cifrado Asimétrico</h2>
+    <p>
+        El cifrado asimétrico utiliza un par de claves diferentes: una clave pública y una clave privada. La clave pública se utiliza para cifrar los datos y solo la clave privada correspondiente puede descifrarlos.
+    </p>
+    <h3>Características:</h3>
+    <ul>
+        <li><strong>Claves distintas:</strong> Usa una clave pública para cifrar y una privada para descifrar.</li>
+        <li><strong>Seguridad:</strong> Es más seguro para intercambiar información entre partes no confiables porque no se necesita compartir una clave secreta.</li>
+        <li><strong>Velocidad:</strong> Es generalmente más lento que el cifrado simétrico debido a la complejidad del cálculo.</li>
+    </ul>
+    <h3>Ejemplos comunes:</h3>
+    <ul>
+        <li><code>RSA (Rivest-Shamir-Adleman)</code></li>
+        <li><code>ECC (Elliptic Curve Cryptography)</code></li>
+    </ul>
+    <h3>Uso común:</h3>
+    <p>
+        El cifrado asimétrico es ideal para el intercambio seguro de claves y certificados, como en el protocolo SSL/TLS (que se usa para HTTPS).
+    </p>
+
+    <h2>3. Hash</h2>
+    <p>
+        Un hash no es un método de cifrado, sino una función matemática que transforma datos de cualquier tamaño en una cadena de longitud fija. Los hashes son unidireccionales y no pueden ser revertidos a su valor original.
+    </p>
+    <h3>Características:</h3>
+    <ul>
+        <li><strong>Unidireccional:</strong> No es posible revertir el hash a su valor original.</li>
+        <li><strong>Determinista:</strong> Para el mismo input, siempre genera el mismo output.</li>
+        <li><strong>Único:</strong> Pequeños cambios en el input generan un hash completamente diferente.</li>
+    </ul>
+    <h3>Ejemplos comunes:</h3>
+    <ul>
+        <li><code>SHA-256 (Secure Hash Algorithm)</code></li>
+        <li><code>MD5 (Message Digest Algorithm)</code></li>
+    </ul>
+    <h3>Uso común:</h3>
+    <p>
+        Los hashes son útiles para verificar la integridad de los datos, como en el almacenamiento de contraseñas o la verificación de la integridad de archivos.
+    </p>
+
+    <h2>Integración en los Frameworks</h2>
+    <p>
+        Los métodos de cifrado y hash se pueden integrar en diferentes frameworks para garantizar la seguridad de las aplicaciones. A continuación se describe cómo se integran en un sistema utilizando estos métodos:
+    </p>
+    
+    <h3>Cifrado Simétrico:</h3>
+    <p>
+        En un sistema, el cifrado simétrico se utiliza típicamente para proteger datos en reposo, como el almacenamiento de información sensible en bases de datos. El framework genera una clave secreta compartida entre el servidor y la base de datos para cifrar y descifrar la información.
+    </p>
+
+    <h3>Cifrado Asimétrico:</h3>
+    <p>
+        En el intercambio de claves o datos sensibles, se utiliza cifrado asimétrico. Por ejemplo, en un sistema de autenticación, la clave pública se usa para cifrar datos enviados al servidor, mientras que el servidor usa su clave privada para descifrar los datos.
+    </p>
+
+    <h3>Hash:</h3>
+    <p>
+        Los hashes se usan comúnmente para almacenar contraseñas en bases de datos de forma segura. En lugar de almacenar la contraseña en texto plano, el framework aplica una función de hash a la contraseña antes de almacenarla, lo que garantiza que incluso si la base de datos es comprometida, las contraseñas no pueden ser descifradas directamente.
+    </p>
+</div>

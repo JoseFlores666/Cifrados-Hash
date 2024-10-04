@@ -1,0 +1,18 @@
+<div class="container">
+  <h1 class="title">Cifrado Escítala</h1>
+
+  <label>Ingresa tu mensaje:</label>
+  <textarea class="textarea" [(ngModel)]="mensaje"></textarea>
+  <p class="error" *ngIf="errorMensaje">{{ errorMensaje }}</p>
+
+  <label>Ingresa tu clave:</label>
+  <input type="number" class="input" [(ngModel)]="clave" />
+  <p class="error" *ngIf="errorClave">{{ errorClave }}</p>
+
+  <button class="button" (click)="handleCifrar()">Cifrar</button>
+  <button class="button" (click)="handleDescifrar()">Descifrar</button>
+
+  <h2>Resultado:</h2>
+  <p class="resultado">{{ resultado }}</p>
+  <button class="button" *ngIf="resultado" (click)="copiarAlPortapapeles()">Copiar Texto</button>
+</div>

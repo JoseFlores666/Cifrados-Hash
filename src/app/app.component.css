@@ -1,0 +1,16 @@
+app-navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.content-container {
+    margin-top: 60px;
+    overflow-y: auto;
+}
+
+app-footer1 {
+    width: 100%;
+    margin-top: 20px;
+}
